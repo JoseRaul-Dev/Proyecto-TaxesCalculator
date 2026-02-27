@@ -5,6 +5,7 @@ public class TaxesCalculator {
 	private static final double Ratio_Alto = 0.25;
 	private static final double Ratio_Medio = 0.15;
 	private static final double Ratio_Bajo = 0.10;
+  
 	private static final int Base_Alta = 6500;
 	private static final int Tasa_Maxima = 50000;
 	private static final int Tasa_Minima = 20000;
@@ -20,7 +21,7 @@ public class TaxesCalculator {
             } else if (ingreso < Tasa_Maxima) {
                 impuesto = Base_Media + (ingreso - Tasa_Minima) * Ratio_Medio;
             } else {
-                impuesto = Base_Alta + (ingreso - 50000) * Ratio_Alto;
+                impuesto = Base_Alta + (ingreso - Tasa_Maxima) * Ratio_Alto;
             }
         } else if (categoria.equals("B")) {
             impuesto = ingreso * 0.20;
