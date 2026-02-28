@@ -14,7 +14,14 @@ public class TaxesCalculator {
 	
     public double calcularImpuesto(double ingreso, String categoria, boolean casado) {
         double impuesto = 0;
-        if (categoria.equals("A")) {
+        impuesto = calculoTasas(ingreso, categoria, casado, impuesto);
+        
+        return impuesto;
+    }
+
+
+	private double calculoTasas(double ingreso, String categoria, boolean casado, double impuesto) {
+		if (categoria.equals("A")) {
            
 			if (ingreso < Tasa_Minima) {
                 impuesto = ingreso * Ratio_Bajo;
@@ -30,8 +37,7 @@ public class TaxesCalculator {
         if (casado) {
             impuesto = impuesto * Descuento_Casado;
         }
-        
-        return impuesto;
-    }
+		return impuesto;
+	}
 }
 
