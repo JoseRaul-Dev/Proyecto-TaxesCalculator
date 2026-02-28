@@ -1,17 +1,17 @@
 package com.TaxesCalculator;
 
+import static com.TaxesCalculator.TaxConstants.*;
+
 public class TaxesCalculator {
-	private static final double Descuento_Casado = 0.95;
-	private static final double Ratio_Alto = 0.25;
-	private static final double Ratio_Medio = 0.15;
-	private static final double Ratio_Bajo = 0.10;
-  
-	private static final int Base_Alta = 6500;
-	private static final int Tasa_Maxima = 50000;
-	private static final int Tasa_Minima = 20000;
-	private static final int Base_Media = 2000;
 	
-	
+	/**
+     * Aplica las tasas correspondientes según la categoría y el tramo de ingresos.
+     * @param ingreso   Ingreso anual.
+     * @param categoria Categoría de la persona ("A" o "B").
+     * @param casado    Estado civil en el que se encuentra.
+     * @return Importe del impuesto tras aplicar tasas y descuentos.
+     */
+
     public double calcularImpuesto(double ingreso, String categoria, boolean casado) {
         double impuesto = 0;
         impuesto = calculoTasas(ingreso, categoria, casado, impuesto);
@@ -19,25 +19,25 @@ public class TaxesCalculator {
         return impuesto;
     }
 
+    
 
 	private double calculoTasas(double ingreso, String categoria, boolean casado, double impuesto) {
 		if (categoria.equals("A")) {
            
-			if (ingreso < Tasa_Minima) {
-                impuesto = ingreso * Ratio_Bajo;
-            } else if (ingreso < Tasa_Maxima) {
-                impuesto = Base_Media + (ingreso - Tasa_Minima) * Ratio_Medio;
+			if (ingreso < TASA_MINIMA) {
+                impuesto = ingreso * RATIO_BAJO;
+            } else if (ingreso < TASA_MAXIMA) {
+                impuesto = BASE_MEDIA + (ingreso - TASA_MINIMA) * RATIO_MEDIO;
             } else {
-                impuesto = Base_Alta + (ingreso - Tasa_Maxima) * Ratio_Alto;
+                impuesto = BASE_ALTA + (ingreso - TASA_MAXIMA) * RATIO_ALTO;
             }
         } else if (categoria.equals("B")) {
             impuesto = ingreso * 0.20;
         }
         
         if (casado) {
-            impuesto = impuesto * Descuento_Casado;
+            impuesto = impuesto * DESCUENTO_CASADO;
         }
 		return impuesto;
 	}
 }
-
