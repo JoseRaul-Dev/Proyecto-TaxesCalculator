@@ -1,36 +1,43 @@
 package com.TaxesCalculator;
 
+import static com.TaxesCalculator.TaxConstants.*;
+
 public class TaxesCalculator {
 	
-	private static final int Base_Alta = 6500;
-	private static final int Tasa_Maxima = 50000;
-	private static final int Tasa_Minima = 20000;
-    private static final int Base_Media = 2000;
-	
-	
+	/**
+     * Aplica las tasas correspondientes según la categoría y el tramo de ingresos.
+     * @param ingreso   Ingreso anual.
+     * @param categoria Categoría de la persona ("A" o "B").
+     * @param casado    Estado civil en el que se encuentra.
+     * @return Importe del impuesto tras aplicar tasas y descuentos.
+     */
+
     public double calcularImpuesto(double ingreso, String categoria, boolean casado) {
         double impuesto = 0;
-        if (categoria.equals("A")) {
-         
-			if (ingreso < Tasa_Minima) {
-                impuesto = ingreso * 0.10;
+        impuesto = calculoTasas(ingreso, categoria, casado, impuesto);
+        
+        return impuesto;
+    }
+
+    
+
+	private double calculoTasas(double ingreso, String categoria, boolean casado, double impuesto) {
+		if (categoria.equals("A")) {
+           
+			if (ingreso < TASA_MINIMA) {
+                impuesto = ingreso * RATIO_BAJO;
+            } else if (ingreso < TASA_MAXIMA) {
+                impuesto = BASE_MEDIA + (ingreso - TASA_MINIMA) * RATIO_MEDIO;
             } else {
-				if (ingreso < Tasa_Maxima) {
-				
-					impuesto = Base_Media + (ingreso - Tasa_Minima) * 0.15;
-				} else {
-				    impuesto = Base_Alta + (ingreso - Tasa_Maxima) * 0.25;
-				}
-			}
+                impuesto = BASE_ALTA + (ingreso - TASA_MAXIMA) * RATIO_ALTO;
+            }
         } else if (categoria.equals("B")) {
             impuesto = ingreso * 0.20;
         }
         
         if (casado) {
-            impuesto = impuesto * 0.95;
+            impuesto = impuesto * DESCUENTO_CASADO;
         }
-        
-        return impuesto;
-    }
+		return impuesto;
+	}
 }
-
