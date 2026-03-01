@@ -22,7 +22,7 @@ Este proyecto implementa una calculadora de impuestos en Java que determina el i
 - **Primera Refactorización** (Extraer Constantes de las tasas y bases): Realizado por José Raúl.
 - **Segunda Refactorización** (Extraer Constantes de los ratios de los impuestos y el descuento de casado): Realizado por Iván Mena.
 - **Tercera Refactorización** (Extraer Metodo Calcular Tasas): Realizado por Iván Mena.
-- **Cuartas Refactorización** (Mover las constantes de la clase principal a otra clase aparte que hemos creado): Realizado por José Raúl.
+- **Cuarta Refactorización** (Mover las constantes de la clase principal a otra clase aparte que hemos creado): Realizado por José Raúl.
 - **Creación del Javadoc**: Realizado por José Raúl.
 - **Memoria del trabajo**: 
 
