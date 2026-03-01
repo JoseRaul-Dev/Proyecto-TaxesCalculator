@@ -1,8 +1,8 @@
 package com.TaxesCalculator;
-
+/** 
+ * Esta clase contiene las constantes utilizadas para el cálculo de impuestos. 
+ */
 public class TaxConstants {
-	/** Esta clase contiene las constantes utilizadas para el cálculo de impuestos. */
-	
 	
 	/** Descuento aplicado si la persona está casada. */
 	public static final double DESCUENTO_CASADO = 0.95;
