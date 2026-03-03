@@ -24,6 +24,6 @@ Este proyecto implementa una calculadora de impuestos en Java que determina el i
 - **Tercera Refactorización** (Extraer Metodo Calcular Tasas): Realizado por Iván Mena.
 - **Cuarta Refactorización** (Mover las constantes de la clase principal a otra clase aparte que hemos creado): Realizado por José Raúl.
 - **Creación del Javadoc**: Realizado por José Raúl.
-- **Memoria del trabajo**: 
+- **Memoria del trabajo**: Realizado por José Raúl y Iván Mena.
 
 
